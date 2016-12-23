@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/angular.min.js"></script>
+	<title>Contact List App</title>
+</head>
+<body>
+	<div class="container" ng-controller="myCtrl">
+		<h1 align="center">BLOG-INP</h1>
+
+    <h2>Crear o editar un articulo</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Titulo</th>
+					<th>Autor</th>
+					<th>Descripcion</th>
+					<th>Accion</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model="blog.titulo"></td>
+					<td><input class="form-control" ng-model="blog.autor"></td>
+					<td><textarea rows="4" cols="50" class="form-control" ng-model="blog.descripcion"></textarea></td>
+					<td><button class="btn btn-primary" ng-click="addBlog()">Agregar Articulo</button></td>
+					<td><button class="btn btn-info" ng-click="update()">Subir</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Limpiar</button></td>
+				</tr>
+				<tr ng-repeat="blog in bloginp">
+		          <td>{{blog.titulo}}</td>
+		          <td>{{blog.autor}}</td>
+		          <td>{{blog.descripcion}}</td>
+		          <td><button class="btn btn-danger" ng-click="remove(blog._id)">Eliminar</button></td>
+		          <td><button class="btn btn-warning" ng-click="edit(blog._id)">Editar</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+<script src="js/controller.js"></script>
+<footer align="center">
+</br></br>
+  <div class="copyright center-xs">
+		<p>© 2016 Franklin Jordan ventura Quico <a href="https://github.com/fventuraq/Blog-INP.git" target="_blank">INP</a></p>
+	</div>
+</footer>
+<!--<script src="js/myCtrl.js"></script>-->
+</html>
